@@ -46,14 +46,18 @@ def steps(step_count, word, jap_flag=True, l=0):
             exp += 1
         sigma_r = (sigma_r + ord(letter)) * 2 ** exp
 
-    for i in range(step_count):
-        sigma = sigma / 2 if not sigma % 2 else 3 * sigma + 1
+    serial = ''
+    for staircase in step_count:
+        for i in range(staircase):
+            sigma = sigma / 2 if not sigma % 2 else 3 * sigma + 1
 
-    sigma = round(sigma) ^ sigma_r
+        sigma = round(sigma) ^ sigma_r
 
-    if jap_flag:
-        return convert_to_utf(sigma)
-    return stand(sigma, sigma_r, l)
+        if jap_flag:
+            serial += convert_to_utf(sigma)
+        serial += stand(sigma, sigma_r, l)
+
+    return serial
 
 
 def stand(x, y, l):
@@ -69,4 +73,4 @@ def stand(x, y, l):
     return alphanumeric
 
 
-print(steps([10, 20], 'digikey'))
+print(steps([1, 2], 'jetbrains'))
