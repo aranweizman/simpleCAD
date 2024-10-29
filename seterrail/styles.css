@@ -1,0 +1,9 @@
+.city-dot.blink {
+    animation: blink-animation 1s infinite;
+}
+
+@keyframes blink-animation {
+    0% { background-color: red; }
+    50% { background-color: transparent; }
+    100% { background-color: red; }
+}

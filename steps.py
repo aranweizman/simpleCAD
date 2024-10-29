@@ -55,7 +55,9 @@ def steps(step_count, word, jap_flag=True, l=0):
 
         if jap_flag:
             serial += convert_to_utf(sigma)
-        serial += stand(sigma, sigma_r, l)
+    # made recent change here: 9/9/24 11:47
+    if not jap_flag:
+        return stand(sigma, sigma_r, l)
 
     return serial
 
@@ -72,5 +74,4 @@ def stand(x, y, l):
 
     return alphanumeric
 
-
-print(steps([1, 2], 'jetbrains'))
+print(steps([15], 'hujiemailpassword'))

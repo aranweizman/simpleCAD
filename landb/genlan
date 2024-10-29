@@ -1,0 +1,85 @@
+Abstract:
+i want to write a simulation of language development, the same way it is done by humans, equipped with a database
+representing the langauge - the database will be populated by the outputs of the simulation.
+Key Index:
+    1. def = definition
+    2. Exp = explanation
+    3. Ex = example
+    4. Det = detail
+    5. Lst = list
+    6. Eff = efficiency
+    7. Not = notational note
+
+Notes:
+    1. double quotes (") surrounds key-words, single quotes (') surround example sentences describing The Simulation (Phenomenon or Ideas),
+       and back ticks (`) surround sentences that are (or could be) in The Documentation.
+    2. capitalized words are key-words that have a definition and a use in The Documentation of The Simulation
+    3. a capitalized `The` means the preceding is unique to The Simulation, for this reason - the first words of sentences are not capitalized by default.
+        1. [Ex]: in `The World` World refers to a unique generator function.
+        2. [Ex]: in `The Simulation` Simulation refers to the program (of which this is The Documentation) and so it is unique.
+    4. an Efficiency (`[Eff]:`) is an example of a decision (in The Documentation) that makes The Simulation more computationally efficient.
+    5. a notation note (`[Not]:`) is a comment that provides explanation for a notation used in The Documentation.
+
+Constituent Definition:
+    1. [Def]: World; a unique generator function that outputs data structures.
+    2. [Def]: Phenomenon; an output of The World.
+    3. [Def]: Idea; a data structure that represents a Phenomenon, equipped with Relations and Attributes.
+    4. [Def]: Relation: a data structure of a pointer from one Idea to another,
+              equipped with a Type (another structure) specifying the kind of relation.
+           1. [Exp]: 'A is an instance of B', 'a is a part of B', 'A orbits B', 'A implies B', 'A is tangent to B', are all different Relations between A and B.
+                the Relations are unilateral, and are from A to B, because A is the Idea being described.
+                1. [Ex]: 'A is implied by B' is still a description of a Relation (not the actual Relation, the Relation is
+                of course a data structure of the pointer) from A to B.
+                2. [Ex]: 'A is the mirror image of B' is a description of a bilateral Relation, and so is 'A and B are mirror images'.
+                3. [Eff]: whether a Relation is unilateral or bilateral, is a part of the Type of the Relation.
+           1. [Det]: Types of Relations:
+                1. [Lst]: (Logic) Types TODO: (Transitive Verbs):
+                    1. Implications
+                        1.[Ex]: as in 'a is cheaper than B and B is cheaper than C' (Logically) Implies 'a is cheaper than C'.
+                    2. Contrast
+                    3. Presumption
+                        2.[Ex]: as in 'i am not strong enough' Presumes 'i am somewhat strong', and also presumes 'i have strength as a quality'.
+                            [Exp]: notice the above are descriptions of Relations that can actually occur in our database:
+                                   if an agent received a Phenomenon (from The World) that it Moved a heavy object,
+                                   it may come to the conclusion that it is strong. it may later receive a phenomenon
+                                   that it tried to move an object and failed, and then conclude (by Invention) that it is
+                                   'not strong enough'
+                    4. Equivalence TODO: can two ideas be logically equivalent, but different other-wise? If not, then why have two copies?
+                2. [Lst]: (Set) Types:
+                    1. Membership/Non-Membership
+                        1. [Not]: backwards slash (`/`) means there is an exact opposite to the Relation, which cannot be
+                                  captured by the inverse unilateral Relation, and so a bit indicating the Polarity should be present in the Type structure.
+                    2. Subset
+                        1. [Not]: Here having `Subset/Non-subset` could be redundant,
+                                  because whether the necessity of specification of something not being a subset of something else is TBD.
+                    3. Equivalence
+                    4. Complementation
+                3. [Lst]: (Physical) Types:
+                    1. [Lst]: Relative-Solid:
+                        1. Over
+                        3. Next-to
+                        4. Inside-of
+                        6. Surrounding
+                        7. Orbits
+                        TODO: incomplete
+                    2. [Lst]: Force-Solid:
+                        1. Moves
+                        2. Attract/Repels
+                        4. Slides-on
+    5. [Def]: Agent: a data structure representing an agent in The World, consuming Phenomenons, and Generating Ideas, via the
+                     following three methods:
+        1. [Def]: Impression: a function that converts one phenomenon(data structure) into one Idea (another data structure).
+        2. [Def]: Invention: a function that converts one or more Ideas to a new Idea.
+        3. [Def]: Contemplation: a function that takes two Ideas and sets a Relation.
+    6. [Def]: Corpus: the total of all Ideas and their Relations: This is kept in a simple database of a hashtable, where each Idea has a name and a list of Relations,
+                      and a list of attributes.
+
+    7. [Def]: Reduction: The Simulation is equipped with a reduction mechanism. This mechanism is a function that takes two or more ideas,
+              and merges(replaces) them into one.
+                    1. [Not]: much like a git commit merge - the ideas may be conflicting, and it is up to The Reduction to resolve these conflicts.
+              The mechanism works as follows:
+
+Remnants Queue:
+    3. Binds
+        1. [Exp]: of a force onto particles or molecules.
+            1. [Ex]: 'the electrical force binds the electron and the proton'.

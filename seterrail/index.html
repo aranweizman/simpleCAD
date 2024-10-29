@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Israel Map Quiz Game</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #map-container {
+            position: relative;
+            width: 800px;
+            margin: 0 auto;
+        }
+        #map {
+            width: 100%;
+        }
+        .city-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: blue;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .label {
+            position: absolute;
+            background-color: rgba(255, 0, 0, 0.8);
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Israel Map Quiz Game</h1>
+    <div id="game-info">
+        <p id="city-name">City: <span id="current-city"></span></p>
+    </div>
+    <div id="map-container">
+        <img id="map" src="il_map.jpg" alt="Map of Israel">
+        <!-- City dots will be added here dynamically -->
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
